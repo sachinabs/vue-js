@@ -9,7 +9,7 @@
 
             <router-link class="nav" to="/">Random Joke</router-link>
             <router-link class="nav" to="/facts">Number Facts</router-link>
-            <router-link class="nav" to="/">Marvel Quote</router-link>
+            <router-link class="nav" to="/marval">Marvel Quote</router-link>
 
         </div>
     </div>

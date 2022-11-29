@@ -32,7 +32,7 @@ export default {
   methods: { // functions for the component
     bringData: async function () {
       try {
-        let joke = await UserService.fetchdata()
+        let joke = await UserService.getJokes()
         const randomNumber = Math.floor(Math.random() * 376) + 1
         this.punchline = joke.data[randomNumber].punchline;
         this.question = joke.data[randomNumber].setup;
@@ -45,7 +45,7 @@ export default {
   },
   created: async function () {
     try {
-      let joke = await UserService.fetchdata()
+      let joke = await UserService.getJokes()
       const randomNumber = Math.floor(Math.random() * 376) + 1
       this.punchline = joke.data[randomNumber].punchline;
       this.question = joke.data[randomNumber].setup;

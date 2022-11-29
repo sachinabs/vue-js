@@ -3,7 +3,8 @@
         <div class="box">
             <div class="joke-division">
 
-                <span class="type">Type : {{ this.type }} fact <span v-if="this.year"> || Year : {{ this.year }}</span>
+                <span class="type">Movie : {{ this.type }} <span v-if="this.year"> || Speaker : {{ this.year
+                }}</span>
                 </span>
                 <h3 class="question">{{ this.caption }}</h3>
 
@@ -21,7 +22,7 @@ import { UserService } from "../services/services"
 
 
 export default {
-    name: "Facts",
+    name: "Marval",
     data: function () { //sate data
         return {
             caption: '',
@@ -35,13 +36,16 @@ export default {
     },
     methods: { // functions for the component
         bringData: async function () {
-
+            this.isloading = true;
+            this.caption = '';
+            this.year = '';
+            this.type = '';
             try {
-                let data = await UserService.getFact();
+                let data = await UserService.getMarvalQuote();
                 this.isloading = true;
-                this.caption = data.data.text;
-                this.year = data.data.year;
-                this.type = data.data.type;
+                this.caption = data.data.Quote;
+                this.year = data.data.Speaker;
+                this.type = data.data.Title;
                 this.isloading = false;
 
             } catch (error) {
@@ -56,10 +60,11 @@ export default {
         // }
         try {
             this.isloading = true;
-            let data = await UserService.getFact();
-            this.caption = data.data.text;
-            this.year = data.data.year;
-            this.type = data.data.type;
+            let data = await UserService.getMarvalQuote();
+            this.isloading = true;
+            this.caption = data.data.Quote;
+            this.year = data.data.Speaker;
+            this.type = data.data.Title;
             this.isloading = false;
 
         } catch (error) {
