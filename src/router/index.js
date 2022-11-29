@@ -18,7 +18,7 @@ const router = createRouter({
     },
     {
       path: '/marval',
-      name: 'fact',
+      name: 'marval',
       component: Marval
     },
     {
